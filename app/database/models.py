@@ -19,5 +19,14 @@ class Appointment(Base):
 
     id = Column(Integer, primary_key=True)
     user = Column(String)
-    date = Column(String)
+    date = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class Conversation(Base):
+    __tablename__ = "conversations"
+
+    id = Column(Integer, primary_key=True)
+    user = Column(String)
+    role = Column(String)  # user ou assistant
+    message = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)

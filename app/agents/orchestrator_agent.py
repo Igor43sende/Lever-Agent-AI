@@ -52,4 +52,12 @@ def orchestrate(intent, user, message, session):
 
         return f"Horários disponíveis:\n{', '.join(slots)}"
 
+    # uso do contexto
+    if intent == "unknown":
+
+        message_lower = message.lower()
+
+        if "mudar" in message_lower or "remarcar" in message_lower:
+            return "Você deseja remarcar sua consulta?"
+
     return "Não entendi sua solicitação."
